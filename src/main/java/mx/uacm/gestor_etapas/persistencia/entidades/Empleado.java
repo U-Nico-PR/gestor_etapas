@@ -1,8 +1,12 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
-import java.time.LocalDate;
+import jakarta.persistence.*;
 
+import java.time.LocalDate;
+@Entity
 public class Empleado {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_empleado;
     private Long id_departamento;
     private Long id_puesto;
@@ -13,4 +17,7 @@ public class Empleado {
     private String rfc;
     private LocalDate fecha_contratacion;
     private String estado; // ¿Qué estado?
+    @ManyToOne
+    @JoinColumn(name = "id_departamento")
+    private Departamento departamento;
 }

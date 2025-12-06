@@ -1,9 +1,6 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
 @Entity
@@ -20,5 +17,8 @@ public class Factura {
     private double total;
     private String estado;
     private String formaPago;
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
 
 }

@@ -1,9 +1,8 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Departamento {
@@ -15,5 +14,7 @@ public class Departamento {
     private String nombre;
     private String extencion;
     private String email;
+    @OneToMany(mappedBy = "empleado")
+    private List<Empleado> empleados;
 
 }
