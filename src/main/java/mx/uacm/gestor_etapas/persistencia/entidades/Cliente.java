@@ -1,9 +1,8 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class Cliente {
@@ -19,5 +18,9 @@ public class Cliente {
     private String telefono;
     private String empresa;
     private String estado;
+    @OneToMany (mappedBy = "reuniones")
+    private List<Reunion> reuniones;
+    @OneToMany(mappedBy = "facturas")
+    private List<Factura> facturas;
 
 }
