@@ -1,20 +1,41 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
-import java.sql.Time;
+import jakarta.persistence.*;
+import lombok.Data;
+
 import java.time.LocalDate;
 import java.time.LocalTime;
-import java.util.Date;
 
+@Entity
+@Table(name = "reuniones")
+@Data
 public class Reunion {
+    @Id
+    @Column(name = "id_reunion")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_reunion;
-    private LocalDate fecha_inicio;      // Recomendado que se unique junto con hora_inicio
-    private LocalTime hora_reunion;      // Recomendado que se unique junto con fecha_reunion
-    private Long id_cliente;
-    private Long id_equipo;
-    private Long id_proyecto;
-    private LocalTime hora_fin;
-    private String titulo;
-    private String objetivo;
-    private String lugar;
 
+    @ManyToOne
+    @JoinColumn(name = "id_cliente")
+    private Cliente cliente;
+
+    @OneToOne
+    @JoinColumn(name = "id_equipo")
+    private Equipo equipo;
+
+    @OneToOne
+    @JoinColumn(name = "id_proyecto")
+    private Proyecto proyecto;
+
+    private LocalDate fecha_inicio;      // Recomendado que sea unique junto con hora_inicio
+
+    private LocalTime hora_inicio;      // Recomendado que sea unique junto con fecha_reunion
+
+    private LocalTime hora_fin;
+
+    private String titulo;
+
+    private String objetivo;
+
+    private String lugar;
 }
