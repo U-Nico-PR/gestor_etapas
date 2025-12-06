@@ -14,9 +14,9 @@ public class Empleado {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_empleado;
 
-    private Long id_departamento;
-
-    private Long id_puesto;
+    @ManyToOne
+    @JoinColumn(name = "id_departamento")
+    private Departamento departamento;
 
     @ManyToOne
     @JoinColumn(name = "id_puesto")

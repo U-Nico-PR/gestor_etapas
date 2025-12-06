@@ -1,20 +1,22 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "cronogramas")
+@Data
 public class Cronograma {
     @Id
     @Column(name = "id_cronograma")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cronograma;
 
-    @OneToOne
-    @JoinColumn(name = "id_proyecto")
-    private Proyecto proeyecto;
+    @OneToMany(mappedBy = "cronograma")
+    private List<Etapa> etapas;
 
     private LocalDate fecha_inicio;
 

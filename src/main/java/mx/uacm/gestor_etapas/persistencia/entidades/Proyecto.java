@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "proyecto")
+@Table(name = "proyectos")
 @Data
 public class Proyecto {
 
@@ -36,4 +36,8 @@ public class Proyecto {
     private LocalDate fecha_fin;
     private String estado;
     private String tipo;
+
+    @OneToOne
+    @JoinColumn(name = "id_cronograma")
+    private Cronograma cronogramas;
 }

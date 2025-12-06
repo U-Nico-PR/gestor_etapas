@@ -2,11 +2,13 @@ package mx.uacm.gestor_etapas.persistencia.entidades;
 
 import jakarta.persistence.*;
 import jdk.jfr.Enabled;
+import lombok.Data;
 
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "contrato")
+@Table(name = "contratos")
+@Data
 public class Contrato {
 
     @Id

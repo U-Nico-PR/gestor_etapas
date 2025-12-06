@@ -1,12 +1,14 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
-@Table
+@Table(name = "actidades")
+@Data
 public class Actividad {
 
     @Id
@@ -18,13 +20,14 @@ public class Actividad {
     @JoinColumn(name = "id_etapa")
     private Etapa etapa;
 
-    @OneToOne
-    @JoinColumn(name = "id_requisito")
-    private Requisito requisito;
-
+    // Es el responsable
     @OneToOne
     @JoinColumn(name = "id_responsable")
     private Empleado responsable;
+
+    @OneToOne
+    @JoinColumn(name = "id_entregable")
+    private Entregable entregable;
 
     private String tipo;
     private String nombre;

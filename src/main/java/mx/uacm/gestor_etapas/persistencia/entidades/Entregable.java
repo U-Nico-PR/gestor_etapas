@@ -6,7 +6,7 @@ import lombok.Data;
 import java.time.LocalDate;
 
 @Entity
-@Table
+@Table(name = "entregables")
 @Data
 public class Entregable {
     @Id
@@ -18,7 +18,7 @@ public class Entregable {
     @JoinColumn(name = "id_actividad")
     private Actividad actividad;
 
-    //
+    // Quien es autor del entregable
     @OneToOne
     @JoinColumn(name = "id_empleado")
     private Empleado empleado;

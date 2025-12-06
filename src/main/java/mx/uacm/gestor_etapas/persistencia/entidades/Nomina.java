@@ -16,7 +16,7 @@ public class Nomina {
     private Long id_nomina;
 
     // mappedBy se utiliza cuando no es lado propietario y no tiene la FK
-    @OneToMany(mappedBy = "nomina,")
+    @OneToMany(mappedBy = "nomina")
     private List<Empleado> empleados;
 
     //@Temporal(TemporalType.DATE) Según no es recomendable cuando se usa LocalDate.

@@ -1,17 +1,17 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+import lombok.Data;
 
 import java.time.LocalDate;
 @Entity
+@Table(name = "requisitos")
+@Data
 public class Requisito {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_requisito;
-    private Long id_proyecto;
+
     private LocalDate fechaRegistro;
     private String tipo;
     private String estado;
