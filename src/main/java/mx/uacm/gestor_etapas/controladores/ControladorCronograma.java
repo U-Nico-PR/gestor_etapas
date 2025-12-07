@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.Arrays;
 import java.util.List;
 
 @Controller
@@ -18,18 +19,22 @@ public class ControladorCronograma {
 
     // Declarado como atributo. Podría ser en un Bean para que Spring lo gestione
     private RestTemplate restTemplate = new RestTemplate();
-    private String url = "http://localhost:8080/api/recurso_cronograma";
+    private String urlCronograma = "http://localhost:8080/api/recurso_cronograma";
 
     @GetMapping
     public String consumirAPI(Model model) {
-        ResponseEntity<List<Cronograma>> resp = restTemplate.exchange(
-                url,
-                HttpMethod.GET,
-                null,
-                new ParameterizedTypeReference<List<Cronograma>>() {}
-        );
-        List<Cronograma> cronogramas = resp.getBody();
-        model.addAttribute("cronogramas", cronogramas != null ? cronogramas : List.of());
+//        ResponseEntity<List<Cronograma>> resp = restTemplate.exchange(
+//                url,
+//                HttpMethod.GET,
+//                null,
+//                new ParameterizedTypeReference<List<Cronograma>>() {}
+//        );
+//        List<Cronograma> cronogramas = resp.getBody();
+//        model.addAttribute("cronogramas", cronogramas != null ? cronogramas : List.of());
+
+        Cronograma[] cronogramasArray = restTemplate.getForObject(urlCronograma, Cronograma[].class);
+        List<Cronograma> cronogramas = Arrays.asList(cronogramasArray);
+        model.addAttribute("cronogramas", cronogramas);
         return "cronograma"; // nombre de la vista Thymeleaf
     }
 }

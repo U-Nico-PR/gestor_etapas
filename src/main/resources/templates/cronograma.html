@@ -52,10 +52,10 @@
                         </div>
                     </div>
 
-
-                    <button class="btn-action btn-add-actividad">
+                    <!-- Se modifico la etiqueta de botton -> a -->
+                    <a class="btn-action btn-add-actividad" th:href="@{/formulario-actividad/nueva/{id}(id=${etapa.id})}">
                         + Agregar Nueva Actividad
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
