@@ -1,0 +1,177 @@
+/* --- RESET Y BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #fff8e1; /* Fondo muy suave amarillento */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+/* --- CONTENEDOR PRINCIPAL --- */
+.form-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 550px; /* Un poco más compacto que la actividad */
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(230, 126, 34, 0.15); /* Sombra anaranjada tenue */
+    overflow: hidden;
+    border: 1px solid #ffe0b2;
+}
+
+.form-header {
+    background-color: #e67e22; /* Naranja fuerte */
+    color: white;
+    padding: 20px 30px;
+    border-bottom: 4px solid #d35400; /* Borde inferior más oscuro */
+}
+
+.form-header h2 {
+    font-size: 1.4rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.form-header p {
+    font-size: 0.9rem;
+    color: rgba(255,255,255, 0.9);
+}
+
+/* --- FORMULARIO --- */
+.entregable-form {
+    padding: 25px 30px;
+}
+
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #5d4037; /* Marrón oscuro para contraste */
+    margin-bottom: 6px;
+}
+
+/* Inputs */
+input[type="text"],
+input[type="date"],
+input[type="url"],
+textarea {
+    padding: 10px;
+    border: 1px solid #e0e0e0;
+    border-radius: 5px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    width: 100%;
+    background-color: #fff;
+    transition: all 0.2s;
+}
+
+input:focus, textarea:focus {
+    border-color: #e67e22; /* Foco Naranja */
+    box-shadow: 0 0 0 3px rgba(230, 126, 34, 0.15);
+    outline: none;
+}
+
+/* Input con Icono (URL) */
+.input-icon-group {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.prefix-icon {
+    position: absolute;
+    left: 10px;
+    font-size: 1.1rem;
+    pointer-events: none;
+}
+
+.input-icon-group input {
+    padding-left: 35px; /* Espacio para el icono */
+}
+
+/* --- GRID FLEXIBLE --- */
+.form-row {
+    display: flex;
+    gap: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+.flex-3 { flex: 3 !important; } /* Nombre más largo */
+.flex-1 { flex: 1 !important; } /* Versión corta */
+
+@media (max-width: 500px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 4px;
+}
+
+/* --- BOTONES --- */
+.form-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #fce4ec;
+}
+
+.btn-cancelar, .btn-aceptar {
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: transform 0.1s, background 0.2s;
+}
+
+/* Cancelar */
+.btn-cancelar {
+    background-color: #fff;
+    color: #757575;
+    border: 1px solid #e0e0e0;
+}
+
+.btn-cancelar:hover {
+    background-color: #f5f5f5;
+    color: #424242;
+}
+
+/* Aceptar (Estilo Primario) */
+.btn-aceptar {
+    background-color: #e67e22; /* Naranja */
+    color: white;
+    box-shadow: 0 2px 5px rgba(230, 126, 34, 0.3);
+}
+
+.btn-aceptar:hover {
+    background-color: #d35400; /* Naranja más oscuro */
+}
+
+.btn-aceptar:active {
+    transform: translateY(1px);
+    box-shadow: none;
+}

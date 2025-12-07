@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Actividad</title>
+    <link rel="stylesheet" th:href="@{/css/estilosActividades.css}">
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Registrar Nueva Actividad</h2>
+            <p>Complete los detalles de la tarea asignada</p>
+        </div>
+
+        <form class="actividad-form">
+            
+            <div class="form-row">
+                <div class="form-group flex-2"> <label for="nombre">Nombre de la Actividad</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Diseño de base de datos" required>
+                </div>
+                
+                <div class="form-group flex-1">
+                    <label for="tipo">Tipo</label>
+                    <input type="text" id="tipo" name="tipo" placeholder="Ej: Desarrollo, Gestión">
+                </div>
+            </div>
+
+            <div class="form-row three-cols">
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select id="estado" name="estado">
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="En Progreso">En Progreso</option>
+                        <option value="Finalizada">Finalizada</option>
+                        <option value="Cancelada">Cancelada</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_inicio">Fecha Inicio</label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                </div>
+                <div class="form-group">
+                    <label for="fecha_final">Fecha Final</label>
+                    <input type="date" id="fecha_final" name="fecha_final" required>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="horas_estimadas">Horas Estimadas</label>
+                    <div class="input-icon-wrapper">
+                        <input type="number" id="horas_estimadas" name="horas_estimadas" placeholder="0" min="0" required>
+                        <span class="suffix">hrs</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="horas_reales">Horas Reales</label>
+                    <div class="input-icon-wrapper">
+                        <input type="number" id="horas_reales" name="horas_reales" placeholder="0" min="0">
+                        <span class="suffix">hrs</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" rows="3" maxlength="255" placeholder="Detalles técnicos o notas sobre la actividad..."></textarea>
+                <small class="char-count">Máximo 255 caracteres</small>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-cancelar">Cancelar</button>
+                <button type="submit" class="btn-aceptar">Aceptar</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>

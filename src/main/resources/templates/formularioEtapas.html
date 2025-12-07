@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Etapa</title>
+    <link rel="stylesheet" th:href="@{/css/estilosetapas.css}">
+</head>
+<body>
+
+    <div class="form-container">
+        <div class="form-header">
+            <h2>Registrar Nueva Etapa</h2>
+            <p>Complete los detalles de la fase del proyecto</p>
+        </div>
+
+        <form class="etapa-form">
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="nombre">Nombre de la Etapa</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Planificación Inicial" required>
+                </div>
+                <div class="form-group">
+                    <label for="fase">Fase</label>
+                    <input type="text" id="fase" name="fase" placeholder="Ej: Fase 1" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="costo">Costo Estimado ($)</label>
+                <input type="number" id="costo" name="costo" placeholder="0.00" step="0.01" min="0" required>
+            </div>
+
+            <div class="form-row three-cols">
+                <div class="form-group">
+                    <label for="fecha_inicio">Fecha Inicio</label>
+                    <input type="date" id="fecha_inicio" name="fecha_inicio">
+                </div>
+                <div class="form-group">
+                    <label for="fecha_fin">Fecha Fin</label>
+                    <input type="date" id="fecha_fin" name="fecha_fin">
+                </div>
+                <div class="form-group">
+                    <label for="fecha_estimada">Fecha Estimada</label>
+                    <input type="date" id="fecha_estimada" name="fecha_estimada">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" name="descripcion" rows="4" maxlength="255" placeholder="Describa brevemente el objetivo de esta etapa..."></textarea>
+                <small class="char-count">Máximo 255 caracteres</small>
+            </div>
+
+            <div class="form-actions">
+                <button type="button" class="btn-cancelar">Cancelar</button>
+                <button type="submit" class="btn-aceptar">Aceptar</button>
+            </div>
+
+        </form>
+    </div>
+
+</body>
+</html>
