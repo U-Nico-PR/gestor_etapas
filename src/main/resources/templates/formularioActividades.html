@@ -15,18 +15,19 @@
         </div>
 
         <form class="actividad-form" action="#" th:action="@{/formulario-actividad/nueva/guardar}" th:object="${actividad}" method="post">
-            <input type="hidden" th:hidden="*{etapa.id}">
+            <!-- para que se pueda enviar a la etapa correspondiente -->
+            <input type="hidden" th:field="*{etapa.id}" />
             
             <div class="form-row">
                 <div class="form-group flex-2">
                     <label for="nombre">Nombre de la Actividad</label>
-                    <input type="text" id="nombre" name="nombre" th:field="*{nombre}" required>
+                    <input type="text" id="nombre" th:field="*{nombre}" required>
                     <label th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}">Error Nombre</label>
                 </div>
                 
                 <div class="form-group flex-1">
                     <label for="tipo">Tipo</label>
-                    <input type="text" id="tipo" name="tipo" th:field="*{tipo}">
+                    <input type="text" id="tipo" th:field="*{tipo}">
                     <label th:if="${#fields.hasErrors('tipo')}" th:errors="*{tipo}">Error Tipo</label>
                 </div>
             </div>
@@ -34,7 +35,7 @@
             <div class="form-row three-cols">
                 <div class="form-group">
                     <label for="estado">Estado</label>
-                    <select id="estado" name="estado">
+                    <select th:field="*{estado}" id="estado">
                         <option value="Pendiente">Pendiente</option>
                         <option value="En Progreso">En Progreso</option>
                         <option value="Finalizada">Finalizada</option>
@@ -43,11 +44,13 @@
                 </div>
                 <div class="form-group">
                     <label for="fecha_inicio">Fecha Inicio</label>
-                    <input type="date" id="fecha_inicio" name="fecha_inicio" required>
+                    <input type="date" id="fecha_inicio" th:field="*{fecha_inicio}" required>
+                    <label th:if="${#fields.hasErrors('fecha_inicio')}" th:errors="*{fecha_inicio}">Error Fecha Inicio</label>
                 </div>
                 <div class="form-group">
                     <label for="fecha_final">Fecha Final</label>
-                    <input type="date" id="fecha_final" name="fecha_final" required>
+                    <input type="date" id="fecha_final" th:field="*{fecha_final}" required>
+                    <label th:if="${#fields.hasErrors('fecha_final')}" th:errors="*{fecha_final}">Error Fecha Final</label>
                 </div>
             </div>
 
@@ -55,14 +58,14 @@
                 <div class="form-group">
                     <label for="horas_estimadas">Horas Estimadas</label>
                     <div class="input-icon-wrapper">
-                        <input type="number" id="horas_estimadas" name="horas_estimadas" placeholder="0" min="0" required>
+                        <input type="number" id="horas_estimadas" th:field="*{horas_estimadas}" placeholder="0" min="0" required>
                         <span class="suffix">hrs</span>
                     </div>
                 </div>
                 <div class="form-group">
                     <label for="horas_reales">Horas Reales</label>
                     <div class="input-icon-wrapper">
-                        <input type="number" id="horas_reales" name="horas_reales" placeholder="0" min="0">
+                        <input type="number" id="horas_reales" th:field="*{horas_reales}" placeholder="0" min="0">
                         <span class="suffix">hrs</span>
                     </div>
                 </div>
@@ -70,7 +73,7 @@
 
             <div class="form-group">
                 <label for="descripcion">Descripción</label>
-                <textarea id="descripcion" name="descripcion" rows="3" maxlength="255" placeholder="Detalles técnicos o notas sobre la actividad..."></textarea>
+                <textarea id="descripcion" th:field="*{descripcion}" rows="3" maxlength="255" placeholder="Detalles técnicos o notas sobre la actividad..."></textarea>
                 <small class="char-count">Máximo 255 caracteres</small>
             </div>
 

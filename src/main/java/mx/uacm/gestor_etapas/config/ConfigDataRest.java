@@ -15,14 +15,14 @@ public class ConfigDataRest implements RepositoryRestConfigurer {
     @Override
     public void configureRepositoryRestConfiguration(RepositoryRestConfiguration config, CorsRegistry cors) {
 
-        // 1️⃣ JSON plano
+        // JSON plano
         config.setDefaultMediaType(MediaType.APPLICATION_JSON);
         config.useHalAsDefaultJsonMediaType(false);
 
-        // 2️⃣ Exponer IDs
+        // Exponer IDs
         config.exposeIdsFor(Actividad.class, Etapa.class, Cronograma.class);
 
-        // 3️⃣ (Opcional) CORS
+        // (Opcional) CORS
         cors.addMapping("/**")
                 .allowedOrigins("*")
                 .allowedMethods("GET", "POST", "PUT", "DELETE");

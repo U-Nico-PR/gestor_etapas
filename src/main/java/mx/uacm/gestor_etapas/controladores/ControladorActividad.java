@@ -37,6 +37,6 @@ public class ControladorActividad {
     @PostMapping("/guardar")
     public String guardarActividad(Actividad actividad, Model model) {
         restTemplate.postForObject(urlActividad, actividad, Actividad.class);
-        return "redirect:/cronograma";
+        return "redirect:/etapas";
     }
 }

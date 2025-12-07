@@ -1,5 +1,6 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class Actividad {
 
     @ManyToOne
     @JoinColumn(name = "id_etapa")
+    @JsonIgnore
     private Etapa etapa;
 
     // Es el responsable
