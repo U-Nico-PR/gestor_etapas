@@ -1,5 +1,6 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -18,6 +19,7 @@ public class Etapa {
 
     @ManyToOne
     @JoinColumn(name = "id_cronograma")
+    @JsonBackReference
     private Cronograma cronograma;
 
     @OneToMany(mappedBy = "etapa")

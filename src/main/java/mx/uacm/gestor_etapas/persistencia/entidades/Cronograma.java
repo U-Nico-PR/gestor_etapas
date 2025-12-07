@@ -1,5 +1,6 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,7 +16,8 @@ public class Cronograma {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_cronograma;
 
-    @OneToMany(mappedBy = "cronograma")
+    @OneToMany(mappedBy = "cronograma", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonManagedReference
     private List<Etapa> etapas;
 
     private LocalDate fecha_inicio;

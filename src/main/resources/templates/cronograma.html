@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronograma de Proyecto</title>
+    <link rel="stylesheet" th:href="@{/css/estiloscrono.css}">
+</head>
+<body>
+    <div class="contenedor-principal">
+        <h1 class="titulo-app">Gestor de Cronograma</h1>
+        <!-- Iterar sobre etapas -->
+        <div th:each="cronograma : ${cronogramas}">
+
+            <!-- Iterar sobre etapas -->
+            <div th:each="etapa, stat : ${cronograma.etapas}" class="etapa-card">
+                <div class="etapa-header">
+                    <div class="etapa-info">
+                        <h2 class="etapa-titulo" th:text="'Etapa ' + ${stat.index + 1} + ': ' + ${etapa.fase}"></h2>
+                    </div>
+                    <div class="etapa-presupuesto">
+                        <span class="label-presupuesto">Presupuesto:</span>
+                        <span th:text="${etapa.presupuesto.monto}" class="monto-presupuesto"></span>
+                    </div>
+                </div>
+                <div class="etapa-body">
+
+                    <!-- Iterar sobre actividades -->
+                    <div th:each="actividad : ${etapa.actividades}" class="actividad-card">
+                        <div class="actividad-top-row">
+                            <div class="inputs-group">
+                                <input type="text" class="input-nombre" th:value="${actividad.nombre}" readonly>
+                                <div class="fechas-group">
+                                    <div class="fecha-wrapper">
+                                        <label>Inicio</label>
+                                        <input type="date" class="input-fecha" th:value="${actividad.fecha_inicio}">
+                                    </div>
+                                    <div class="fecha-wrapper">
+                                        <label>Fin</label>
+                                        <input type="date" class="input-fecha" th:value="${actividad.fecha_final}">
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-delete-actividad" title="Eliminar Actividad">
+                                🗑️
+                            </button>
+                        </div>
+                        <div class="entregable-area">
+                            <button class="btn-add-entregable">
+                                + Agregar Entregable Único
+                            </button>
+                        </div>
+                    </div>
+
+
+                    <button class="btn-action btn-add-actividad">
+                        + Agregar Nueva Actividad
+                    </button>
+                </div>
+            </div>
+        </div>
+        <button class="btn-action btn-add-etapa">
+            + AGREGAR NUEVA ETAPA
+        </button>
+    </div>
+</body>
+</html>
