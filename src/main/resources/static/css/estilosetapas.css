@@ -1,0 +1,157 @@
+/* --- RESET Y BASE --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background-color: #f4f7f6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Centra el formulario en la pantalla */
+    padding: 20px;
+}
+
+/* --- CONTENEDOR DEL FORMULARIO --- */
+.form-container {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 600px;
+    border-radius: 8px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    overflow: hidden;
+}
+
+.form-header {
+    background-color: #2c3e50; /* Mismo azul oscuro del cronograma */
+    color: white;
+    padding: 20px 30px;
+    text-align: center;
+}
+
+.form-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.form-header p {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* --- CUERPO DEL FORMULARIO --- */
+.etapa-form {
+    padding: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 8px;
+}
+
+/* Estilos de Inputs */
+input[type="text"],
+input[type="number"],
+input[type="date"],
+textarea {
+    padding: 10px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s;
+    font-family: inherit;
+    width: 100%;
+}
+
+input:focus, textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+textarea {
+    resize: vertical; /* Permite cambiar altura, no ancho */
+}
+
+/* --- GRID Y LAYOUT --- */
+.form-row {
+    display: flex;
+    gap: 20px;
+}
+
+.form-row .form-group {
+    flex: 1; /* Distribuye espacio equitativamente */
+}
+
+/* Ajuste para móviles: colapsar filas */
+@media (max-width: 500px) {
+    .form-row {
+        flex-direction: column;
+        gap: 0;
+    }
+}
+
+.char-count {
+    text-align: right;
+    font-size: 0.75rem;
+    color: #888;
+    margin-top: 4px;
+}
+
+/* --- BOTONES --- */
+.form-actions {
+    display: flex;
+    justify-content: flex-end; /* Alinea a la derecha */
+    gap: 15px;
+    margin-top: 10px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.btn-cancelar, .btn-aceptar {
+    padding: 10px 25px;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, transform 0.1s;
+}
+
+/* Estilo Cancelar */
+.btn-cancelar {
+    background-color: #f1f1f1;
+    color: #555;
+    border: 1px solid #ddd;
+}
+
+.btn-cancelar:hover {
+    background-color: #e2e2e2;
+    color: #333;
+}
+
+/* Estilo Aceptar */
+.btn-aceptar {
+    background-color: #27ae60; /* Verde éxito */
+    color: white;
+}
+
+.btn-aceptar:hover {
+    background-color: #219150;
+    box-shadow: 0 2px 5px rgba(39, 174, 96, 0.3);
+}
+
+.btn-aceptar:active {
+    transform: scale(0.98);
+}
