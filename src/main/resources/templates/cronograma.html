@@ -46,9 +46,18 @@
                             </button>
                         </div>
                         <div class="entregable-area">
-                            <button class="btn-add-entregable">
+                            <a th:if="${actividad.entregable == null}"
+                               class="btn-add-entregable"
+                               th:href="@{/formulario-entregable/nuevo/{id}(id=${actividad.id})}"
+                               style="text-decoration: none; display: block;">
                                 + Agregar Entregable Único
-                            </button>
+                            </a>
+
+                            <div th:if="${actividad.entregable != null}" class="entregable-existente">
+                                <span class="badge-entregable">ENTREGADO</span>
+                                <span th:text="${actividad.entregable.nombre}">Nombre Archivo</span>
+                            </div>
+
                         </div>
                     </div>
 

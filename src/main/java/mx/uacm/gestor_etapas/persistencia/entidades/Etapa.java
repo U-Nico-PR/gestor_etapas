@@ -2,6 +2,7 @@ package mx.uacm.gestor_etapas.persistencia.entidades;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -24,6 +25,7 @@ public class Etapa {
     private Cronograma cronograma;
 
     @OneToMany(mappedBy = "etapa")
+    @JsonIgnoreProperties("etapa")
     private List<Actividad> actividades;
 
     @OneToOne

@@ -1,6 +1,7 @@
 package mx.uacm.gestor_etapas.persistencia.entidades;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -19,7 +20,7 @@ public class Actividad {
 
     @ManyToOne
     @JoinColumn(name = "id_etapa")
-    @JsonIgnore
+    @JsonIgnoreProperties("actividades")
     private Etapa etapa;
 
     // Es el responsable
@@ -27,8 +28,10 @@ public class Actividad {
     @JoinColumn(name = "id_responsable")
     private Empleado responsable;
 
-    @OneToOne
-    @JoinColumn(name = "id_entregable")
+    @OneToOne(mappedBy = "actividad")
+   // ESTO PERMITE LEER EL ENTREGABLE,
+    // PERO EVITA QUE AL LEERLO SE TRAIGA DE NUEVO LA ACTIVIDAD
+    @JsonIgnoreProperties("actividad")
     private Entregable entregable;
 
     private String tipo;

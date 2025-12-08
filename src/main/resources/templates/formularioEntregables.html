@@ -2,69 +2,69 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registro de Entregable</title>
     <link rel="stylesheet" th:href="@{/css/estilosEntregables.css}">
 </head>
 <body>
 
-    <div class="form-container">
-        <div class="form-header">
-            <h2>Registrar Entregable</h2>
-            <p>Subida de evidencias y documentos finales</p>
+<div class="form-container">
+    <form class="entregable-form"
+          th:action="@{/formulario-entregable/guardar}"
+          th:object="${entregable}"
+          method="post">
+
+        <input type="hidden" th:field="*{idActividad}" />
+
+        <div class="form-row">
+            <div class="form-group flex-3">
+                <label for="nombre">Nombre del Entregable</label>
+                <input type="text" id="nombre" th:field="*{nombre}" placeholder="Ej: Manual de Usuario Final" required>
+            </div>
+
+            <div class="form-group flex-1">
+                <label for="version">Versión</label>
+                <input type="text" id="version" th:field="*{version}" placeholder="v1.0" required>
+            </div>
         </div>
 
-        <form class="entregable-form">
-            
-            <div class="form-row">
-                <div class="form-group flex-3"> <label for="nombre">Nombre del Entregable</label>
-                    <input type="text" id="nombre" name="nombre" placeholder="Ej: Manual de Usuario Final" required>
-                </div>
-                
-                <div class="form-group flex-1"> <label for="version">Versión</label>
-                    <input type="text" id="version" name="version" placeholder="v1.0" required>
-                </div>
-            </div>
-
-            <div class="form-row">
-                <div class="form-group">
-                    <label for="tipo">Tipo de Archivo/Entregable</label>
-                    <input type="text" id="tipo" name="tipo" list="tipos-data" placeholder="Ej: PDF, Código Fuente, Excel">
-                    <datalist id="tipos-data">
-                        <option value="Documento PDF">
-                        <option value="Código Fuente">
-                        <option value="Hoja de Cálculo">
-                        <option value="Diagrama">
-                        <option value="Ejecutable">
-                    </datalist>
-                </div>
-                <div class="form-group">
-                    <label for="fecha_entrega">Fecha de Entrega</label>
-                    <input type="date" id="fecha_entrega" name="fecha_entrega" required>
-                </div>
-            </div>
-
+        <div class="form-row">
             <div class="form-group">
-                <label for="url_repositorio">URL del Repositorio / Documento</label>
-                <div class="input-icon-group">
-                    <span class="prefix-icon">🔗</span>
-                    <input type="url" id="url_repositorio" name="url_repositorio" placeholder="https://github.com/proyecto/..." required>
-                </div>
+                <label for="tipo">Tipo de Archivo/Entregable</label>
+                <input type="text" id="tipo" th:field="*{tipo}" list="tipos-data" placeholder="Ej: PDF, Código Fuente, Excel">
+                <datalist id="tipos-data">
+                    <option value="Documento PDF">
+                    <option value="Código Fuente">
+                    <option value="Hoja de Cálculo">
+                    <option value="Diagrama">
+                    <option value="Ejecutable">
+                </datalist>
             </div>
-
             <div class="form-group">
-                <label for="descripcion">Descripción / Notas Adicionales</label>
-                <textarea id="descripcion" name="descripcion" rows="3" maxlength="255" placeholder="Comentarios sobre el estado del entregable..."></textarea>
-                <small class="char-count">Máximo 255 caracteres</small>
+                <label for="fecha_entrega">Fecha de Entrega</label>
+                <input type="date" id="fecha_entrega" th:field="*{fecha_entrega}" required>
             </div>
+        </div>
 
-            <div class="form-actions">
-                <button type="button" class="btn-cancelar">Cancelar</button>
-                <button type="submit" class="btn-aceptar">Aceptar</button>
+        <div class="form-group">
+            <label for="url_repositorio">URL del Repositorio / Documento</label>
+            <div class="input-icon-group">
+                <span class="prefix-icon">🔗</span>
+                <input type="url" id="url_repositorio" th:field="*{url_repositorio}" placeholder="https://github.com/..." required>
             </div>
+        </div>
 
-        </form>
-    </div>
+        <div class="form-group">
+            <label for="descripcion">Descripción / Notas Adicionales</label>
+            <textarea id="descripcion" th:field="*{descripcion}" rows="3" maxlength="255"></textarea>
+            <small class="char-count">Máximo 255 caracteres</small>
+        </div>
 
+        <div class="form-actions">
+            <button type="button" class="btn-cancelar" onclick="window.location.href='/etapas'">Cancelar</button>
+            <button type="submit" class="btn-aceptar">Aceptar</button>
+        </div>
+
+    </form>
+</div>
 </body>
 </html>
