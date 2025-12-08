@@ -19,9 +19,14 @@ public class Etapa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // 1. Campo simple para el ID (se usa para escribir/guardar en BD)
+    @Column(name = "id_cronograma")
+    private Long idCronograma;
+
+    // 2. Relación para lectura (marcada como insertable=false, updatable=false)
     @ManyToOne
-    @JoinColumn(name = "id_cronograma")
-    @JsonBackReference
+    @JoinColumn(name = "id_cronograma", insertable = false, updatable = false)
+    @JsonIgnore
     private Cronograma cronograma;
 
     @OneToMany(mappedBy = "etapa")

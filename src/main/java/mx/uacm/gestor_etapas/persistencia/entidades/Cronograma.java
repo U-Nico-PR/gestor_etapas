@@ -17,8 +17,8 @@ public class Cronograma {
     private Long id_cronograma;
 
     @OneToMany(mappedBy = "cronograma", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    @JsonManagedReference
-    private List<Etapa> etapas;
+
+    private List<Etapa> etapas;;
 
     private LocalDate fecha_inicio;
 
