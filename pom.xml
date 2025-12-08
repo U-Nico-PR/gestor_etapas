@@ -92,6 +92,12 @@
             <artifactId>spring-boot-starter-webmvc-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <!-- dependencia para el xslt 3.0 y el Saxon -->
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>12.3</version>
+        </dependency>
     </dependencies>
 
     <build>

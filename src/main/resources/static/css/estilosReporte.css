@@ -1,0 +1,11 @@
+body { font-family: 'Segoe UI', sans-serif; padding: 20px; background: #f9f9f9; }
+.cronograma-container { background: white; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+h1 { color: #2c3e50; text-align: center; }
+h2 { color: #e67e22; border-bottom: 2px solid #e67e22; padding-bottom: 5px; }
+h3 { color: #3498db; margin-top: 15px; }
+table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+th { background-color: #f2f2f2; color: #333; }
+.badge { padding: 4px 8px; border-radius: 4px; font-size: 0.8em; font-weight: bold; }
+.badge-pendiente { background: #ffeeba; color: #856404; }
+.badge-finalizada { background: #d4edda; color: #155724; }

@@ -10,6 +10,12 @@
 <div class="contenedor-principal">
     <h1 class="titulo-app">Gestor de Cronograma</h1>
 
+    <div style="text-align: right; margin-bottom: 20px;">
+        <a href="/reporte/cronograma" target="_blank" class="btn-reporte">
+            📄 Generar Reporte Ejecutivo (HTML)
+        </a>
+    </div>
+
     <div th:each="cronograma : ${cronogramas}">
 
         <div th:each="etapa, stat : ${cronograma.etapas}" class="etapa-card">
